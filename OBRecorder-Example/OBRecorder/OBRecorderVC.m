@@ -127,8 +127,8 @@
     OBRecorderButton *startRecordingBtn = [[OBRecorderButton alloc] initWithFrame:CGRectMake((bottomToolBar.frame.size.width - RECORD_BUTTON_SIZE) * 0.5, (bottomToolBar.frame.size.height - RECORD_BUTTON_SIZE) * 0.5, RECORD_BUTTON_SIZE, RECORD_BUTTON_SIZE)];
     
     [startRecordingBtn addTarget:self action:@selector(startRecordingButtonTappeds) forControlEvents:UIControlEventTouchDown];
-    [startRecordingBtn addTarget:self action:@selector(pausedRecording) forControlEvents:UIControlEventTouchUpInside];
-    [startRecordingBtn addTarget:self action:@selector(pausedRecording) forControlEvents:UIControlEventTouchUpOutside];
+    [startRecordingBtn addTarget:self action:@selector(stopRecording) forControlEvents:UIControlEventTouchUpInside];
+    [startRecordingBtn addTarget:self action:@selector(stopRecording) forControlEvents:UIControlEventTouchUpOutside];
     
     
     startRecordingBtn.buttonColor = BUTTON_RECORD_COLOR;
@@ -145,7 +145,7 @@
     [btnRetake addTarget:self action:@selector(retakeRecording) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomBar addSubview:btnRetake];
     self.btnRetake = btnRetake;
-//    btnRetake.hidden = YES;
+    btnRetake.hidden = YES;
     
     
     UIButton *btnDone = [[UIButton alloc] init];
@@ -156,7 +156,7 @@
     [btnDone addTarget:self action:@selector(recordVideoDone) forControlEvents:UIControlEventTouchUpInside];
     [self.bottomBar addSubview:btnDone];
     self.btnDone = btnDone;
-//    btnDone.hidden = YES;
+    btnDone.hidden = YES;
 }
 
 - (void)setupCaptureArea {
@@ -184,53 +184,46 @@
 
 - (void)startRecordingButtonTappeds {
     NSLog(@"Started recording");
+    [self refreshProgress];
     self.progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-}
-
-- (void)pausedRecording {
-    NSLog(@"Paused recording");
-    [self.progressTimer invalidate];
+    [self.recordingManager startRecoring];
 }
 
 - (void)retakeRecording {
     NSLog(@"Retake recording.");
+    [self refreshProgress];
 }
 
 - (void)recordVideoDone {
     NSLog(@"Recording has finished.");
+    AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
+    playerViewController.player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:self.recordingManager.videoPath]];
+    [self presentViewController:playerViewController animated:YES completion:nil];
+
 }
 
 #pragma mark - MAIN ACTION
 
-- (void) startRecording {
+- (void)startRecording {
     self.recordingManager.previewLayer.frame = self.view.bounds;
     [self.view.layer insertSublayer:self.recordingManager.previewLayer atIndex:0];
     [self.recordingManager startCapture];
 }
 
 - (void)stopRecording {
-//    _recordingProgress.hidden = YES;
-//    _startRecordingBtn.hidden = NO;
-//    _playVideoBtn.hidden = NO;
-//    _saveVideoBtn.hidden = NO;
-//    
-//    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut
-//                     animations:^{
-//                         _topToolBar.transform = CGAffineTransformIdentity;
-//                     } completion:nil];
-//    
-//    [self.recordingManager stopRecordingHandler:^(UIImage *firstFrameImage) {
-//        [_playVideoBtn setImage:firstFrameImage forState:UIControlStateNormal];
-//    }];
+    NSLog(@"Stop recording");
+    [self.progressTimer invalidate];
+    [self.recordingManager stopRecordingHandler:^(UIImage *firstFrameImage) {
+        [self setButton:_btnRetake hidden:NO];
+        [self setButton:_btnDone hidden:NO];
+    }];
 }
 
 
 #pragma mark - SRRecordingManagerDelegate
 
 - (void)updateRecordingProgress:(CGFloat)progress {
-    
-//    _recordingProgress.progress = progress;
-    
+
     if (progress >= 1.0) {
         [self stopRecording];
     }
@@ -245,5 +238,19 @@
         [self.progressTimer invalidate];
 }
 
+- (void)refreshProgress {
+    self.progress = 0;
+    [self setButton:_btnRetake hidden:YES];
+    [self setButton:_btnDone hidden:YES];
+    [self.btnRecording setProgress:self.progress];
+}
+
+#pragma mark - Help Function
+
+- (void)setButton:(UIButton *)button hidden:(BOOL)hidden {
+    [UIView transitionWithView: button duration:0.5 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^(void){
+        [button setHidden:hidden];
+    } completion:nil];
+}
 
 @end
