@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67FCD1F11ECD644000F23398 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD1F01ECD644000F23398 /* main.m */; };
+		67FCD1FA1ECD644000F23398 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FCD1F81ECD644000F23398 /* Main.storyboard */; };
+		67FCD1FC1ECD644000F23398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FCD1FB1ECD644000F23398 /* Assets.xcassets */; };
+		67FCD1FF1ECD644000F23398 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FCD1FD1ECD644000F23398 /* LaunchScreen.storyboard */; };
+		67FCD20A1ECD649400F23398 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD2091ECD649400F23398 /* AppDelegate.m */; };
+		67FCD20E1ECD649B00F23398 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD20D1ECD649B00F23398 /* ViewController.m */; };
+		67FCD2131ECD653800F23398 /* OBRecorderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD2111ECD653800F23398 /* OBRecorderVC.m */; };
+		67FCD2171ECD82BA00F23398 /* Icon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FCD2161ECD82BA00F23398 /* Icon.xcassets */; };
+		67FCD21A1ECD928600F23398 /* OBRecordManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD2191ECD928600F23398 /* OBRecordManager.m */; };
+		67FCD21D1ECD929A00F23398 /* OBRecordWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD21C1ECD929A00F23398 /* OBRecordWriter.m */; };
+		67FCD2271ECDAAF700F23398 /* OBRecorderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD2261ECDAAF700F23398 /* OBRecorderButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		67FCD1EC1ECD644000F23398 /* OBRecorder-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OBRecorder-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		67FCD1F01ECD644000F23398 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		67FCD1F91ECD644000F23398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		67FCD1FB1ECD644000F23398 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		67FCD1FE1ECD644000F23398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		67FCD2001ECD644000F23398 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67FCD2081ECD649400F23398 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		67FCD2091ECD649400F23398 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		67FCD20C1ECD649B00F23398 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		67FCD20D1ECD649B00F23398 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		67FCD2101ECD653800F23398 /* OBRecorderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBRecorderVC.h; sourceTree = "<group>"; };
+		67FCD2111ECD653800F23398 /* OBRecorderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBRecorderVC.m; sourceTree = "<group>"; };
+		67FCD2161ECD82BA00F23398 /* Icon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icon.xcassets; sourceTree = "<group>"; };
+		67FCD2181ECD928600F23398 /* OBRecordManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBRecordManager.h; sourceTree = "<group>"; };
+		67FCD2191ECD928600F23398 /* OBRecordManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBRecordManager.m; sourceTree = "<group>"; };
+		67FCD21B1ECD929A00F23398 /* OBRecordWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBRecordWriter.h; sourceTree = "<group>"; };
+		67FCD21C1ECD929A00F23398 /* OBRecordWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBRecordWriter.m; sourceTree = "<group>"; };
+		67FCD2251ECDAAF700F23398 /* OBRecorderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBRecorderButton.h; sourceTree = "<group>"; };
+		67FCD2261ECDAAF700F23398 /* OBRecorderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBRecorderButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67FCD1E91ECD644000F23398 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67FCD1E31ECD644000F23398 = {
+			isa = PBXGroup;
+			children = (
+				67FCD1EE1ECD644000F23398 /* OBRecorder-Example */,
+				67FCD1ED1ECD644000F23398 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67FCD1ED1ECD644000F23398 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD1EC1ECD644000F23398 /* OBRecorder-Example.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67FCD1EE1ECD644000F23398 /* OBRecorder-Example */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD2061ECD646200F23398 /* OBRecorder */,
+				67FCD2071ECD649400F23398 /* AppDelegate */,
+				67FCD20B1ECD649B00F23398 /* ViewControllers */,
+				67FCD20F1ECD64A600F23398 /* Nibs */,
+				67FCD1FB1ECD644000F23398 /* Assets.xcassets */,
+				67FCD1EF1ECD644000F23398 /* Supporting Files */,
+			);
+			path = "OBRecorder-Example";
+			sourceTree = "<group>";
+		};
+		67FCD1EF1ECD644000F23398 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD1F01ECD644000F23398 /* main.m */,
+				67FCD2001ECD644000F23398 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		67FCD2061ECD646200F23398 /* OBRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD2151ECD676400F23398 /* OBAsset */,
+				67FCD2101ECD653800F23398 /* OBRecorderVC.h */,
+				67FCD2111ECD653800F23398 /* OBRecorderVC.m */,
+				67FCD2181ECD928600F23398 /* OBRecordManager.h */,
+				67FCD2191ECD928600F23398 /* OBRecordManager.m */,
+				67FCD21B1ECD929A00F23398 /* OBRecordWriter.h */,
+				67FCD21C1ECD929A00F23398 /* OBRecordWriter.m */,
+				67FCD2251ECDAAF700F23398 /* OBRecorderButton.h */,
+				67FCD2261ECDAAF700F23398 /* OBRecorderButton.m */,
+			);
+			path = OBRecorder;
+			sourceTree = "<group>";
+		};
+		67FCD2071ECD649400F23398 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD2081ECD649400F23398 /* AppDelegate.h */,
+				67FCD2091ECD649400F23398 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		67FCD20B1ECD649B00F23398 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD20C1ECD649B00F23398 /* ViewController.h */,
+				67FCD20D1ECD649B00F23398 /* ViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		67FCD20F1ECD64A600F23398 /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD1F81ECD644000F23398 /* Main.storyboard */,
+				67FCD1FD1ECD644000F23398 /* LaunchScreen.storyboard */,
+			);
+			name = Nibs;
+			sourceTree = "<group>";
+		};
+		67FCD2151ECD676400F23398 /* OBAsset */ = {
+			isa = PBXGroup;
+			children = (
+				67FCD2161ECD82BA00F23398 /* Icon.xcassets */,
+			);
+			path = OBAsset;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67FCD1EB1ECD644000F23398 /* OBRecorder-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67FCD2031ECD644000F23398 /* Build configuration list for PBXNativeTarget "OBRecorder-Example" */;
+			buildPhases = (
+				67FCD1E81ECD644000F23398 /* Sources */,
+				67FCD1E91ECD644000F23398 /* Frameworks */,
+				67FCD1EA1ECD644000F23398 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OBRecorder-Example";
+			productName = "OBRecorder-Example";
+			productReference = 67FCD1EC1ECD644000F23398 /* OBRecorder-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67FCD1E41ECD644000F23398 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Trinh Van Quyen";
+				TargetAttributes = {
+					67FCD1EB1ECD644000F23398 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 4R99C344EF;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 67FCD1E71ECD644000F23398 /* Build configuration list for PBXProject "OBRecorder-Example" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 67FCD1E31ECD644000F23398;
+			productRefGroup = 67FCD1ED1ECD644000F23398 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67FCD1EB1ECD644000F23398 /* OBRecorder-Example */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67FCD1EA1ECD644000F23398 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67FCD1FF1ECD644000F23398 /* LaunchScreen.storyboard in Resources */,
+				67FCD1FC1ECD644000F23398 /* Assets.xcassets in Resources */,
+				67FCD1FA1ECD644000F23398 /* Main.storyboard in Resources */,
+				67FCD2171ECD82BA00F23398 /* Icon.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67FCD1E81ECD644000F23398 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67FCD21D1ECD929A00F23398 /* OBRecordWriter.m in Sources */,
+				67FCD20E1ECD649B00F23398 /* ViewController.m in Sources */,
+				67FCD2131ECD653800F23398 /* OBRecorderVC.m in Sources */,
+				67FCD20A1ECD649400F23398 /* AppDelegate.m in Sources */,
+				67FCD2271ECDAAF700F23398 /* OBRecorderButton.m in Sources */,
+				67FCD1F11ECD644000F23398 /* main.m in Sources */,
+				67FCD21A1ECD928600F23398 /* OBRecordManager.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		67FCD1F81ECD644000F23398 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67FCD1F91ECD644000F23398 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		67FCD1FD1ECD644000F23398 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67FCD1FE1ECD644000F23398 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		67FCD2011ECD644000F23398 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		67FCD2021ECD644000F23398 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67FCD2041ECD644000F23398 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4R99C344EF;
+				INFOPLIST_FILE = "OBRecorder-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.quyentrinh.OBRecorder-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		67FCD2051ECD644000F23398 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4R99C344EF;
+				INFOPLIST_FILE = "OBRecorder-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.quyentrinh.OBRecorder-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67FCD1E71ECD644000F23398 /* Build configuration list for PBXProject "OBRecorder-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67FCD2011ECD644000F23398 /* Debug */,
+				67FCD2021ECD644000F23398 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67FCD2031ECD644000F23398 /* Build configuration list for PBXNativeTarget "OBRecorder-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67FCD2041ECD644000F23398 /* Debug */,
+				67FCD2051ECD644000F23398 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 67FCD1E41ECD644000F23398 /* Project object */;
+}
