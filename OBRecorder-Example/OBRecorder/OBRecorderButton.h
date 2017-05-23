@@ -17,6 +17,8 @@
 @property (nonatomic, strong) CAShapeLayer *progressLayer;
 @property (nonatomic, strong) CAGradientLayer *gradientMaskLayer;
 
+- (id)initWithFrame:(CGRect)aRect andMainColor: (UIColor *)mColor andProgressColor : (UIColor *)pColor;
+- (id)initWithCoder:(NSCoder *)coder andMainColor: (UIColor *)mColor andProgressColor : (UIColor *)pColor;
 - (void)setProgress:(CGFloat)newProgress;
 
 @end

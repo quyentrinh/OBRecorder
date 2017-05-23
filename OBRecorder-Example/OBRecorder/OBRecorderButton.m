@@ -20,10 +20,12 @@
 
 @implementation OBRecorderButton
 
--  (id)initWithFrame:(CGRect)aRect {
+- (id)initWithFrame:(CGRect)aRect andMainColor: (UIColor *)mColor andProgressColor : (UIColor *)pColor {
     self = [super initWithFrame:aRect];
     
     if (self) {
+        [self setButtonColor:mColor];
+        [self setProgressColor:pColor];
         [self addTarget:self action:@selector(didTouchDown) forControlEvents:UIControlEventTouchDown];
         [self addTarget:self action:@selector(didTouchUp) forControlEvents:UIControlEventTouchUpInside];
         [self addTarget:self action:@selector(didTouchUp) forControlEvents:UIControlEventTouchUpOutside];
@@ -33,10 +35,12 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)coder {
+- (id)initWithCoder:(NSCoder *)coder andMainColor: (UIColor *)mColor andProgressColor : (UIColor *)pColor {
     self = [super initWithCoder:coder];
     
     if (self) {
+        [self setButtonColor:mColor];
+        [self setProgressColor:pColor];
         [self addTarget:self action:@selector(didTouchDown) forControlEvents:UIControlEventTouchDown];
         [self addTarget:self action:@selector(didTouchUp) forControlEvents:UIControlEventTouchUpInside];
         [self addTarget:self action:@selector(didTouchUp) forControlEvents:UIControlEventTouchUpOutside];

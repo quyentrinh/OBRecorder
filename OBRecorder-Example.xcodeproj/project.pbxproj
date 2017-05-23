@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6728E6761ED40D1B00136387 /* OBToolBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6728E6751ED40D1B00136387 /* OBToolBarButton.m */; };
 		67FCD1F11ECD644000F23398 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 67FCD1F01ECD644000F23398 /* main.m */; };
 		67FCD1FA1ECD644000F23398 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67FCD1F81ECD644000F23398 /* Main.storyboard */; };
 		67FCD1FC1ECD644000F23398 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67FCD1FB1ECD644000F23398 /* Assets.xcassets */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6728E6741ED40D1B00136387 /* OBToolBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OBToolBarButton.h; sourceTree = "<group>"; };
+		6728E6751ED40D1B00136387 /* OBToolBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OBToolBarButton.m; sourceTree = "<group>"; };
 		67FCD1EC1ECD644000F23398 /* OBRecorder-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OBRecorder-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		67FCD1F01ECD644000F23398 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		67FCD1F91ECD644000F23398 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				67FCD21C1ECD929A00F23398 /* OBRecordWriter.m */,
 				67FCD2251ECDAAF700F23398 /* OBRecorderButton.h */,
 				67FCD2261ECDAAF700F23398 /* OBRecorderButton.m */,
+				6728E6741ED40D1B00136387 /* OBToolBarButton.h */,
+				6728E6751ED40D1B00136387 /* OBToolBarButton.m */,
 			);
 			path = OBRecorder;
 			sourceTree = "<group>";
@@ -219,6 +224,7 @@
 				67FCD20E1ECD649B00F23398 /* ViewController.m in Sources */,
 				67FCD2131ECD653800F23398 /* OBRecorderVC.m in Sources */,
 				67FCD20A1ECD649400F23398 /* AppDelegate.m in Sources */,
+				6728E6761ED40D1B00136387 /* OBToolBarButton.m in Sources */,
 				67FCD2271ECDAAF700F23398 /* OBRecorderButton.m in Sources */,
 				67FCD1F11ECD644000F23398 /* main.m in Sources */,
 				67FCD21A1ECD928600F23398 /* OBRecordManager.m in Sources */,
