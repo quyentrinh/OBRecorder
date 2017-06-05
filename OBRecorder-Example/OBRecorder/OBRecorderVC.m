@@ -42,6 +42,7 @@
 @property (nonatomic, weak) OBToolBarButton *btnTurnCamera;
 
 @property (nonatomic, weak) UIView   *bottomBar;
+@property (nonatomic, weak) UILabel  *lblHint;
 @property (nonatomic, weak) OBRecorderButton *btnRecording;
 @property (nonatomic, weak) OBToolBarButton *btnRetake;
 @property (nonatomic, weak) OBToolBarButton *btnDone;
@@ -69,7 +70,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    [self startRecording];
+    [self startupCapture];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -132,6 +133,22 @@
     bottomToolBar.backgroundColor = [UIColor clearColor];
     [self.view addSubview:bottomToolBar];
     self.bottomBar = bottomToolBar;
+    
+    
+    CGRect hintLabelFrame = CGRectMake(0, 0, bottomToolBar.frame.size.width, 20);
+    UILabel *hintLabel = [[UILabel alloc] initWithFrame:hintLabelFrame];
+    hintLabel.text = @"Hold to record video";
+    [hintLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:13.0]];
+    hintLabel.textAlignment = NSTextAlignmentCenter;
+    hintLabel.textColor = [UIColor whiteColor];
+    hintLabel.layer.shadowOffset = CGSizeMake(1.0, 1.0);
+    hintLabel.layer.shadowRadius = 5.0;
+    hintLabel.layer.shadowOpacity = 1;
+    
+    [bottomToolBar addSubview:hintLabel];
+    self.lblHint = hintLabel;
+    
+    
     
     CGRect buttonRecordFrame = CGRectMake((bottomToolBar.frame.size.width - RECORD_BUTTON_SIZE) * 0.5, (bottomToolBar.frame.size.height - RECORD_BUTTON_SIZE) * 0.5, RECORD_BUTTON_SIZE, RECORD_BUTTON_SIZE);
     OBRecorderButton *startRecordingBtn = [[OBRecorderButton alloc] initWithFrame: buttonRecordFrame
@@ -198,10 +215,10 @@
 }
 
 - (void)startRecordingButtonTappeds {
-    NSLog(@"Started recording");
     [self refreshProgress];
+    [self setItem:_lblHint hidden:YES];
     self.progressTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-    [self.recordingManager startRecoring];
+    [self startRecording];
 }
 
 - (void)retakeRecording {
@@ -219,18 +236,24 @@
 
 #pragma mark - MAIN ACTION
 
-- (void)startRecording {
+- (void)startupCapture {
     self.recordingManager.previewLayer.frame = self.view.bounds;
     [self.view.layer insertSublayer:self.recordingManager.previewLayer atIndex:0];
     [self.recordingManager startCapture];
+}
+
+- (void)startRecording {
+    NSLog(@"Started recording");
+    [self.recordingManager startRecoring];
 }
 
 - (void)stopRecording {
     NSLog(@"Stop recording");
     [self.progressTimer invalidate];
     [self.recordingManager stopRecordingHandler:^(UIImage *firstFrameImage) {
-        [self setButton:_btnRetake hidden:NO];
-        [self setButton:_btnDone hidden:NO];
+        [self setItem:_btnRecording hidden:YES];
+        [self setItem:_btnRetake hidden:NO];
+        [self setItem:_btnDone hidden:NO];
     }];
 }
 
@@ -255,16 +278,18 @@
 
 - (void)refreshProgress {
     self.progress = 0;
-    [self setButton:_btnRetake hidden:YES];
-    [self setButton:_btnDone hidden:YES];
+    [self setItem:_lblHint hidden:NO];
+    [self setItem:_btnRecording hidden:NO];
+    [self setItem:_btnRetake hidden:YES];
+    [self setItem:_btnDone hidden:YES];
     [self.btnRecording setProgress:self.progress];
 }
 
 #pragma mark - Help Function
 
-- (void)setButton:(UIButton *)button hidden:(BOOL)hidden {
-    [UIView transitionWithView: button duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^(void){
-        [button setHidden:hidden];
+- (void)setItem:(UIView *)view hidden:(BOOL)hidden {
+    [UIView transitionWithView: view duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^(void){
+        [view setHidden:hidden];
     } completion:nil];
 }
 

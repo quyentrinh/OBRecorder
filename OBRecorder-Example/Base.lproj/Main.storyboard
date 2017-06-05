@@ -22,10 +22,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tuB-fB-d6S">
-                                <rect key="frame" x="122.5" y="319" width="130" height="30"/>
-                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <rect key="frame" x="112.5" y="314" width="150" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="0vK-6z-6xQ"/>
+                                    <constraint firstAttribute="width" constant="150" id="0vK-6z-6xQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="y9C-C4-LRt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Start Recording">
@@ -36,7 +37,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.28152306608431465" green="0.79912159969999996" blue="0.75989429978666512" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tuB-fB-d6S" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Yyr-IQ-LJh"/>
                             <constraint firstItem="tuB-fB-d6S" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cmB-nR-77X"/>

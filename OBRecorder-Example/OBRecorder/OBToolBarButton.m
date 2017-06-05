@@ -69,7 +69,6 @@
     return self;
 }
 
-
 - (void)buttonTappedAction {
     if (buttonTappedBlock) {
         buttonTappedBlock();
