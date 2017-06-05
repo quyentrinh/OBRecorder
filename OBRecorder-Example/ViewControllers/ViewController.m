@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "OBRecorderVC.h"
 
-@interface ViewController ()
+@interface ViewController () <OBRecorderVCDelegate>
 
 @end
 
@@ -26,9 +26,18 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)startRecordingButtonTapped:(id)sender {
-    OBRecorderVC *recordVC = [[OBRecorderVC alloc] init];
+    OBRecorderVC *recordVC = [[OBRecorderVC alloc] initWithMaxRecordingTime:5.0 autoSaveVideo:YES delegate:self];
     [self presentViewController:recordVC animated:YES completion:nil];
 }
 
+#pragma mark - OBRecorderVCDelegate
+
+- (void)OBRecorderDidCancelWithMessage:(NSString *)message {
+    NSLog(@"%@", message);
+}
+
+- (void)OBRecorderDidFinishWithVideoPath:(NSString *)videoPath {
+    NSLog(@"%@", videoPath);
+}
 
 @end

@@ -80,7 +80,7 @@
             [_assetWriter startSessionAtSourceTime:CMSampleBufferGetPresentationTimeStamp(sampleBuffer)];
         }
         if (_assetWriter.status == AVAssetWriterStatusFailed) {
-            NSLog(@"write error %@", _assetWriter.error.localizedDescription);
+            NSLog(@"OBRecorder : write error %@", _assetWriter.error.localizedDescription);
             isSuccess = NO;
         }
         

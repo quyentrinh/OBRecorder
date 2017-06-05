@@ -30,8 +30,6 @@
 #define BUTTON_RETAKE_COLOR                     [UIColor colorWithWhite:0.95 alpha:0.5]
 #define BUTTON_DONE_COLOR                       [UIColor colorWithRed:52/255.0 green:204/255.0 blue:176/255.0 alpha:0.8]
 
-#define VIDEO_DURATION                         10
-
 
 @interface OBRecorderVC () <OBRecordManagerDelegate>
 
@@ -47,25 +45,39 @@
 @property (nonatomic, weak) OBToolBarButton *btnRetake;
 @property (nonatomic, weak) OBToolBarButton *btnDone;
 
+@property (nonatomic)                  CGFloat          maxRecordingTime;
 @property (nonatomic, strong)          NSTimer          *progressTimer;
 @property (nonatomic)                  CGFloat          progress;
+@property (nonatomic)                  BOOL             isAutoSaveVideo;
 @property (nonatomic)                  BOOL             isUsingFrontCamera;
 @end
 
 @implementation OBRecorderVC
 
-#pragma mark - LIFE CYCLE
 
+- (instancetype)initWithMaxRecordingTime:(CGFloat)maxRecordingTime autoSaveVideo:(BOOL)isAutoSave delegate: (nonnull id<OBRecorderVCDelegate>)delegate {
+    self = [super init];
+    if (self) {
+        self.maxRecordingTime = maxRecordingTime;
+        self.isAutoSaveVideo = isAutoSave;
+        self.delegate = delegate;
+    }
+    return self;
+}
 
 - (OBRecordManager *)recordingManager {
     
     if (!_recordingManager) {
         _recordingManager = [[OBRecordManager alloc] init];
-        _recordingManager.maxRecordingTime = 15.0;
+        _recordingManager.maxRecordingTime = _maxRecordingTime;
+        _recordingManager.autoSaveVideo = _isAutoSaveVideo;
         _recordingManager.delegate = self;
     }
     return _recordingManager;
 }
+
+
+#pragma mark - LIFE CYCLE
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -199,16 +211,22 @@
 #pragma mark - SELECTOR ACTION
 
 - (void)closeButtonTapped {
-    NSLog(@"Recording has closed.");
+    NSString * message = @"OBRecorder : Close button have tapped.";
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(OBRecorderDidCancelWithMessage:)]) {
+            [self.delegate OBRecorderDidCancelWithMessage:message];
+        }
+    });
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)turnCameraButtonTapped: (BOOL) isFrontCamera {
     if (!isFrontCamera) {
-        NSLog(@"Camera turn to front.");
+        NSLog(@"OBRecorder : Camera turn to front.");
         [self.recordingManager switchCameraInputDeviceToFront];
     } else {
-        NSLog(@"Camera turn to backside.");
+        NSLog(@"OBRecorder : Camera turn to backside.");
         [self.recordingManager swithCameraInputDeviceToBack];
     }
     self.isUsingFrontCamera = !isFrontCamera;
@@ -222,16 +240,22 @@
 }
 
 - (void)retakeRecording {
-    NSLog(@"Retake recording.");
+    NSLog(@"OBRecorder : Retake recording.");
     [self refreshProgress];
 }
 
 - (void)recordVideoDone {
-    NSLog(@"Recording has finished.");
-    AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
-    playerViewController.player = [AVPlayer playerWithURL:[NSURL fileURLWithPath:self.recordingManager.videoPath]];
-    [self presentViewController:playerViewController animated:YES completion:nil];
-
+    NSLog(@"OBRecorder : Recording has finished.");
+    if (_isAutoSaveVideo) {
+        [self.recordingManager saveCurrentRecordingVideo];
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(OBRecorderDidFinishWithVideoPath:)]) {
+            [self.delegate OBRecorderDidFinishWithVideoPath:self.recordingManager.videoPath];
+        }
+    });
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - MAIN ACTION
@@ -243,12 +267,12 @@
 }
 
 - (void)startRecording {
-    NSLog(@"Started recording");
+    NSLog(@"OBRecorder : Start recording");
     [self.recordingManager startRecoring];
 }
 
 - (void)stopRecording {
-    NSLog(@"Stop recording");
+    NSLog(@"OBRecorder : Stop recording");
     [self.progressTimer invalidate];
     [self.recordingManager stopRecordingHandler:^(UIImage *firstFrameImage) {
         [self setItem:_btnRecording hidden:YES];
@@ -270,7 +294,7 @@
 #pragma mark - SRRecorderButton Action
 
 - (void)updateProgress {
-    self.progress += 0.05 / VIDEO_DURATION;
+    self.progress += 0.05 / _maxRecordingTime;
     [self.btnRecording setProgress:self.progress];
     if (self.progress >= 1)
         [self.progressTimer invalidate];

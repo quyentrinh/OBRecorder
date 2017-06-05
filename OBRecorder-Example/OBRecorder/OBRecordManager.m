@@ -140,7 +140,7 @@
         NSError *error = nil;
         _backCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:backCameraDevice error:&error];
         if (error) {
-            NSLog(@"Initialize the rear camera failed!");
+            NSLog(@"OBRecorder : Initialize the rear camera failed!");
         }
     }
     return _backCameraInput;
@@ -160,7 +160,7 @@
         NSError *error = nil;
         _frontCameraInput = [[AVCaptureDeviceInput alloc] initWithDevice:frontCameraDevice error:&error];
         if (error) {
-            NSLog(@"Initialize the front camera failed!");
+            NSLog(@"OBRecorder : Initialize the front camera failed!");
         }
     }
     return _frontCameraInput;
@@ -173,7 +173,7 @@
         NSError *error = nil;
         _audioInput = [AVCaptureDeviceInput deviceInputWithDevice:captureDeviceAudio error:&error];
         if (error) {
-            NSLog(@"Initialize the microphone failed!");
+            NSLog(@"OBRecorder : Initialize the microphone failed!");
         }
     }
     return _audioInput;
@@ -286,10 +286,6 @@
                 }
             });
             
-            if (weakSelf.autoSaveVideo) {
-                [self saveCurrentRecordingVideo];
-            }
-            
             if (handler) {
                 NSURL *videoFileURL = [NSURL fileURLWithPath:weakSelf.videoPath];
                 AVURLAsset *videoAsset = [[AVURLAsset alloc] initWithURL:videoFileURL options:nil];
@@ -376,9 +372,9 @@
         [PHAssetChangeRequest creationRequestForAssetFromVideoAtFileURL:_videoFileURL];
     } completionHandler:^(BOOL success, NSError * _Nullable error) {
         if (!error) {
-            NSLog(@"Save video success!");
+            NSLog(@"OBRecorder : Save video success!");
         } else {
-            NSLog(@"Save video failure!");
+            NSLog(@"OBRecorder : Save video failure!");
         }
     }];
 }

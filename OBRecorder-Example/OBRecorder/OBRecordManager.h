@@ -21,10 +21,7 @@
 
 @property (nonatomic, weak) id<OBRecordManagerDelegate> delegate;
 
-@property (nonatomic, assign, readonly) BOOL isRecording;
-
 @property (nonatomic, assign) CGFloat maxRecordingTime;
-@property (nonatomic, assign, readonly) CGFloat currentRecordingTime;
 
 @property (nonatomic, strong) NSString *videoPath;
 
