@@ -24,4 +24,6 @@
 
 - (instancetype _Nonnull )initWithMaxRecordingTime:(CGFloat)maxRecordingTime autoSaveVideo:(BOOL)isAutoSave delegate: (nonnull id<OBRecorderVCDelegate>)delegate;
 
+- (void)terminate;
+
 @end

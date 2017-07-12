@@ -29,7 +29,7 @@
 #define BUTTON_RECORD_COLOR                     [UIColor colorWithWhite:0.9 alpha:0.9]
 #define BUTTON_RETAKE_COLOR                     [UIColor colorWithWhite:0.95 alpha:0.5]
 #define BUTTON_DONE_COLOR                       [UIColor colorWithRed:52/255.0 green:204/255.0 blue:176/255.0 alpha:0.8]
-
+#define TIME_TO_REMOVE_TEMP_FILE                5.0
 
 @interface OBRecorderVC () <OBRecordManagerDelegate>
 
@@ -275,6 +275,13 @@
     }];
 }
 
+- (void)terminate {
+    // remove video file in document
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, TIME_TO_REMOVE_TEMP_FILE * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [[NSFileManager defaultManager] removeItemAtPath:self.recordingManager.videoPath error:nil];
+        NSLog(@"OBRecorder : Temp file removed");
+    });
+}
 
 #pragma mark - SRRecordingManagerDelegate
 

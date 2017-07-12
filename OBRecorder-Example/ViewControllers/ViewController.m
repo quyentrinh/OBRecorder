@@ -10,7 +10,7 @@
 #import "OBRecorderVC.h"
 
 @interface ViewController () <OBRecorderVCDelegate>
-
+@property (nonatomic) OBRecorderVC *recorderVC;
 @end
 
 @implementation ViewController
@@ -26,8 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)startRecordingButtonTapped:(id)sender {
-    OBRecorderVC *recordVC = [[OBRecorderVC alloc] initWithMaxRecordingTime:5.0 autoSaveVideo:YES delegate:self];
-    [self presentViewController:recordVC animated:YES completion:nil];
+    self.recorderVC = [[OBRecorderVC alloc] initWithMaxRecordingTime:5.0 autoSaveVideo:YES delegate:self];
+    [self presentViewController:self.recorderVC animated:YES completion:nil];
 }
 
 #pragma mark - OBRecorderVCDelegate
@@ -38,6 +38,7 @@
 
 - (void)OBRecorderDidFinishWithVideoPath:(NSString *)videoPath {
     NSLog(@"%@", videoPath);
+    [self.recorderVC terminate];
 }
 
 @end
