@@ -130,8 +130,9 @@
     
     if (!_backCameraInput) {
         AVCaptureDevice *backCameraDevice = nil;
-        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-        for (AVCaptureDevice *device in devices) {
+        NSArray *captureDeviceType = @[AVCaptureDeviceTypeBuiltInWideAngleCamera];
+        AVCaptureDeviceDiscoverySession *session = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:captureDeviceType mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionBack];
+        for (AVCaptureDevice *device in session.devices) {
             if (device.position == AVCaptureDevicePositionBack) {
                 backCameraDevice = device;
                 break;
@@ -150,8 +151,9 @@
     
     if (!_frontCameraInput) {
         AVCaptureDevice *frontCameraDevice = nil;
-        NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-        for (AVCaptureDevice *device in devices) {
+        NSArray *captureDeviceType = @[AVCaptureDeviceTypeBuiltInWideAngleCamera];
+        AVCaptureDeviceDiscoverySession *session = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:captureDeviceType mediaType:AVMediaTypeVideo position:AVCaptureDevicePositionFront];
+        for (AVCaptureDevice *device in session.devices) {
             if (device.position == AVCaptureDevicePositionFront) {
                 frontCameraDevice = device;
                 break;

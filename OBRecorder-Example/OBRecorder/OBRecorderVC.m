@@ -106,7 +106,6 @@
     self.view.backgroundColor = [UIColor blackColor];
     [self setupTopBar];
     [self setupBottomBar];
-    [self setupCaptureArea];
 }
 
 - (void)setupTopBar {
@@ -202,11 +201,6 @@
     self.btnDone = buttonDone;
 
 }
-
-- (void)setupCaptureArea {
-    
-}
-
 
 #pragma mark - SELECTOR ACTION
 
